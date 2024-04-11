@@ -22,6 +22,6 @@
     },
     "types": ["node", "react", "react-dom", "jest"],
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/page.jsx", "jest.config.js"],
   "exclude": ["node_modules"]
 }
