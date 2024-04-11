@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Link href="/" className="flex items-center justify-between p-4">
           <Image
-            className="relative cursor-pointer"
+            className="relative cursor-pointer dark:invert"
             src="/dog-api-logo.svg"
             alt="Next.js Logo"
             width={40}
