@@ -6,6 +6,7 @@ import { BreedService } from "@/services/breedService";
 import { Breed } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
+import { rgbDataURL } from "@/utils/placeholderGenerator";
 
 export default function RandomBreedPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -42,10 +43,8 @@ export default function RandomBreedPage() {
                   src={breed.url}
                   fill
                   style={{ objectFit: "cover" }}
-                  onLoadStart={() => {
-                    setImageLoading(true);
-                  }}
-                  onLoadingComplete={() => setImageLoading(false)}
+                  placeholder="blur"
+                  blurDataURL={rgbDataURL(214, 219, 220)}
                   alt="Next.js Logo"
                   priority
                 />

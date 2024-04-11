@@ -2,6 +2,7 @@ import { BreedService } from "@/services/breedService";
 import Image from "next/image";
 import { Suspense } from "react";
 import AddMoreImages from "./AddMoreImages";
+import { rgbDataURL } from "@/utils/placeholderGenerator";
 
 async function loadBreedImages(breed: string) {
   try {
@@ -34,6 +35,8 @@ export default async function BreedPage({
                 <Image
                   className="relative cursor-pointer rounded-xl"
                   src={breed.url}
+                  placeholder="blur"
+                  blurDataURL={rgbDataURL(214, 219, 220)}
                   fill
                   style={{ objectFit: "cover" }}
                   alt="Next.js Logo"

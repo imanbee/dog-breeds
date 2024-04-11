@@ -3,6 +3,7 @@
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { BreedService } from "@/services/breedService";
 import { Breed } from "@/types";
+import { rgbDataURL } from "@/utils/placeholderGenerator";
 import Image from "next/image";
 import { useCallback, useState } from "react";
 
@@ -41,6 +42,8 @@ const AddMoreImages = (props: AddMoreImagesProps) => {
                 <Image
                   className="relative cursor-pointer rounded-xl"
                   src={breed.url}
+                  placeholder="blur"
+                  blurDataURL={rgbDataURL(214, 219, 220)}
                   fill
                   style={{ objectFit: "cover" }}
                   alt="Next.js Logo"
