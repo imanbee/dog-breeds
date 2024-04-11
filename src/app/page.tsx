@@ -9,6 +9,7 @@ import Link from "next/link";
 
 export default function RandomBreedPage() {
   const [isLoading, setIsLoading] = useState(false);
+  const [imageLoading, setImageLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [breed, setBreed] = useState<Breed | null>(null);
 
@@ -41,6 +42,10 @@ export default function RandomBreedPage() {
                   src={breed.url}
                   fill
                   style={{ objectFit: "cover" }}
+                  onLoadStart={() => {
+                    setImageLoading(true);
+                  }}
+                  onLoadingComplete={() => setImageLoading(false)}
                   alt="Next.js Logo"
                   priority
                 />
@@ -59,9 +64,10 @@ export default function RandomBreedPage() {
           onClick={fetchRandomBreed}
           className="flex justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 p-4 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit rounded-xl border bg-gray-200 p-4 mt-10"
         >
-          Get random breed
+          {imageLoading ? <LoadingSpinner /> : "Get random breed"}
         </button>
         {error && <div className="text-red-500 mt-8">{error}</div>}
+        {imageLoading && <p className="mt-4">Loading image...</p>}
       </div>
     </main>
   );
